@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Hello World</title>
+  
+  <link rel="stylesheet" href="../../src/css/style.css"> <!-- Ajuste o caminho se necessário -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-azure: #3a86ff;
+      --light-blue: #e3f4fa;
+      --span-blue: #cce4fc;
+      --brand-gradient: linear-gradient(90deg, #5de0e6 0%, #004aad 100%);
+      --dark-azure: #1d3557;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light-blue);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+
+    h2 {
+      color: var(--dark-azure);
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      margin: 12px 0;
+      border: 2px solid var(--span-blue);
+      border-radius: 12px;
+      font-size: 16px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--primary-azure);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin: 20px 0;
+      background: var(--brand-gradient);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(58, 134, 255, 0.3);
+    }
+
+    #mensagem { margin-top: 15px; font-size: 15px; min-height: 25px; }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Faça seu Login</h2>
+
+    <input type="text" id="usuario" placeholder="Usuário">
+    <input type="password" id="senha" placeholder="Senha">
+
+    <button onclick="fazerLogin()">Entrar</button>
+
+    <div id="mensagem"></div>
+  </div>
+
+  <script>
+    const usuarios = [
+      { usuario: "admin", senha: "123" },
+      { usuario: "joao",  senha: "abc" },
+      { usuario: "maria", senha: "456" }
+    ];
+
+    function fazerLogin() {
+      let usuarioDigitado = document.getElementById("usuario").value.trim();
+      let senhaDigitada = document.getElementById("senha").value.trim();
+      let mensagem = document.getElementById("mensagem");
+
+      mensagem.textContent = "";
+
+      let usuarioEncontrado = usuarios.find(user => 
+        user.usuario === usuarioDigitado && user.senha === senhaDigitada
+      );
+
+      if (usuarioEncontrado) {
+        mensagem.style.color = "green";
+        mensagem.textContent = "✅ Login realizado! Redirecionando...";
+
+        // Redireciona para o site final após 1 segundo
+        setTimeout(() => {
+          window.location.href = "https://jovifrontend.netlify.app";
+        }, 1200);
+
+      } else {
+        mensagem.style.color = "#e63939";
+        mensagem.textContent = "❌ Usuário ou senha incorretos!";
+      }
+    }
+  </script>
+</body>
+</html>
