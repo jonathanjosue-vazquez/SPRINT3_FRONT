@@ -246,19 +246,6 @@ main {
     color: #555;
 }
 
-/* CARD DE EQUIPE */
-.card.membro {
-    align-items: center;
-    text-align: center;
-}
-
-.card.membro .funcao {
-    font-size: 0.85rem;
-    color: var(--primary-azure);
-    font-weight: 600;
-    margin-top: 5px;
-}
-
 /* GALERIA DE MOCKUPS (5 COLUNAS EM GRID) */
 .grid-container.galeria-5-colunas {
     display: grid;
@@ -329,18 +316,89 @@ main {
     border-color: var(--primary-azure);
 }
 
-/* FOOTER */
+/* NOSSA EQUIPE E FOOTER INTEGRADO */
 .main-footer {
-    background: var(--dark-azure);
-    padding: 30px 20px;
     width: 100%;
-    margin-top: 60px;
+    padding: 60px 20px 30px;
+    background: transparent;
     text-align: center;
 }
 
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-kicker {
+    display: inline-block;
+    background-color: var(--span-blue);
+    color: var(--primary-azure);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.footer-container h2 {
+    font-size: 2.2rem;
+    color: var(--dark-azure);
+    margin-bottom: 35px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+/* CARDS DE MEMBROS E IMAGENS CIRCULARES */
+.card.membro {
+    background: var(--card-bg);
+    padding: 25px 15px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.foto-membro {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-azure);
+    margin-bottom: 15px;
+}
+
+.card.membro h3 {
+    font-size: 1.05rem;
+    color: var(--dark-azure);
+    margin-bottom: 4px;
+}
+
+.card.membro .funcao {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: 500;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 20px;
+}
+
 .footer-bottom p {
-    color: white;
-    font-size: 14px;
+    color: #718096;
+    font-size: 0.85rem;
 }
 
 /* BREAKPOINTS DE RESPONSIVIDADE (MEDIA QUERIES) */
@@ -355,12 +413,16 @@ main {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .hero h1 {
         font-size: 2.8rem;
     }
 }
 
-/* Mobile (Até 600px) - REGRAS AJUSTADAS */
+/* Mobile (Até 600px) */
 @media (max-width: 600px) {
     .main-header {
         flex-direction: column;
@@ -390,7 +452,7 @@ main {
     }
 
     .hero h1 {
-        font-size: 1.8rem; /* Reduz título para não quebrar lateralmente */
+        font-size: 1.8rem;
         line-height: 1.2;
         letter-spacing: -0.5px;
         word-wrap: break-word;
@@ -423,6 +485,7 @@ main {
     .grid-container,
     .grid-container.duo,
     .grid-container.galeria-5-colunas,
+    .team-grid,
     .form-contato {
         grid-template-columns: 1fr;
         gap: 15px;
