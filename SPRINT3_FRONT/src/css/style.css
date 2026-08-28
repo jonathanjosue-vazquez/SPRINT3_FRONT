@@ -282,6 +282,69 @@ main {
     text-align: center;
 }
 
+/* PROTÓTIPO INTERATIVO */
+.prototipo-section {
+    padding-top: 20px;
+}
+
+.prototipo-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 60px 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 35px rgba(29, 53, 87, 0.1);
+    isolation: isolate;
+}
+
+.prototipo-glow {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 480px;
+    height: 260px;
+    background: var(--brand-gradient);
+    filter: blur(110px);
+    opacity: 0.35;
+    z-index: -1;
+}
+
+.prototipo-kicker {
+    margin-bottom: 18px;
+}
+
+.prototipo-titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-azure);
+    max-width: 640px;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.prototipo-desc {
+    max-width: 560px;
+    font-size: 1rem;
+    color: #4a5568;
+    margin-bottom: 10px;
+}
+
+.btn-prototipo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+}
+
+.btn-prototipo .material-symbols-outlined {
+    font-size: 20px;
+}
+
 /* FORMULÁRIO DE CONTATO (CSS GRID) */
 .form-contato {
     display: grid;
@@ -420,6 +483,14 @@ main {
     .hero h1 {
         font-size: 2.8rem;
     }
+
+    .prototipo-card {
+        padding: 45px 25px;
+    }
+
+    .prototipo-titulo {
+        font-size: 1.7rem;
+    }
 }
 
 /* Mobile (Até 600px) */
@@ -498,5 +569,18 @@ main {
     .form-contato textarea,
     .form-contato button {
         grid-column: span 1;
+    }
+
+    .prototipo-card {
+        padding: 35px 18px;
+        border-radius: 18px;
+    }
+
+    .prototipo-titulo {
+        font-size: 1.4rem;
+    }
+
+    .prototipo-desc {
+        font-size: 0.9rem;
     }
 }
